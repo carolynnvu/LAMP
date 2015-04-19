@@ -1,65 +1,26 @@
-<?php 
-	
-//Log errors
-error_reporting(E_ALL);
-ini_set("display_errors",1);
-
-//Will replace with config file later
-$creds = fopen("credentials.txt", "r") or die("Unable to open file!");
-$db_server = trim(fgets($creds)); 
-$user = trim(fgets($creds)); 
-$password = trim(fgets($creds)); 
-$db_name = trim(fgets($creds));
-fclose($creds);
-
-//Connect to database server
-$connection = mysqli_connect($db_server, 
-							 $user, 
-							 $password, 
-							 $db_name);
-
-//Setup query 
-$query = "SELECT username, first_nm, last_nm, date_of_birth, 
-				 sex.descript AS sex_descript, 
-				 age_group.descript AS age_descript
-		  FROM students LEFT JOIN sex ON students.sex_id = sex.sex_id 
-		  LEFT JOIN age_group ON students.age_group_id = age_group.age_id 
-		  ORDER BY username";
-
-$resultSet = $connection->query($query);
-
-?>
-
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>View Students</title>
-		<meta charset="UTF-8" />
-	</head>
-	<body>
-		<table>
-			<thead>
-				<tr>
-					<th>Username</th>
-					<th>First Name</th>					
-					<th>Last Name</th>					
-					<th>DOB</th>					
-					<th>Sex</th>					
-					<th>Age Group</th>					
-				</tr>
-			</thead>
-			<tbody>
-				<?php while($row = mysqli_fetch_array($resultSet)) : ?>
-				<tr>
-					<td><?php echo $row["username"]; ?></td>
-					<td><?php echo $row["first_nm"]; ?></td>
-					<td><?php echo $row["last_nm"]; ?></td>
-					<td><?php echo $row["date_of_birth"]; ?></td>
-					<td><?php echo $row["sex_descript"]; ?></td>
-					<td><?php echo $row["age_descript"]; ?></td>
-				</tr>
-				<?php endwhile; ?>
-			</tbody>
-		</table>
-	</body>
-</html>  
+ <html>
+ 	<head>
+ 		<title>Form Action Example</title>
+ 		<meta charset="UTF-8" />
+ 	</head>
+ 	<body>
+ 		<div class="container">
+ 			<h1>Form Action Example</h1>
+ 			<p>Select the order to display the students.</p>
+ 			<form action="process-view.php" method="POST">
+ 				<label>Sort By:</label>
+ 				<select name="sort_by">
+ 					<option value="username">Username</option>
+ 					<option value="last_nm">Last Name</option>
+ 				</select>
+ 				<label>Sort in:</label>
+ 				<select name="sort_in">
+ 					<option value="ASC">Ascending</option>
+ 					<option value="DESC">Descending</option>
+ 				</select>
+ 				<input type="submit" value="Go!" />
+ 			</form>
+ 		</div>
+ 	</body>
+ </html> 
