@@ -37,20 +37,29 @@ $resultSet = $connection->query($query);
 		<meta charset="UTF-8" />
 	</head>
 	<body>
-		<?php while($row = mysqli_fetch_array($resultSet)) : ?>
-			<li>
-				<?php echo $row["username"]; ?>
-				-
-				<?php echo $row["first_nm"]; ?>
-				-
-				<?php echo $row["last_nm"]; ?>
-				-
-				<?php echo $row["date_of_birth"]; ?>
-				-
-				<?php echo $row["sex_descript"]; ?>
-				-
-				<?php echo $row["age_descript"]; ?>
-			</li>
-		<?php endwhile; ?>
+		<table>
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>First Name</th>					
+					<th>Last Name</th>					
+					<th>DOB</th>					
+					<th>Sex</th>					
+					<th>Age Group</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<?php while($row = mysqli_fetch_array($resultSet)) : ?>
+				<tr>
+					<td><?php echo $row["username"]; ?></td>
+					<td><?php echo $row["first_nm"]; ?></td>
+					<td><?php echo $row["last_nm"]; ?></td>
+					<td><?php echo $row["date_of_birth"]; ?></td>
+					<td><?php echo $row["sex_descript"]; ?></td>
+					<td><?php echo $row["age_descript"]; ?></td>
+				</tr>
+				<?php endwhile; ?>
+			</tbody>
+		</table>
 	</body>
 </html>  
