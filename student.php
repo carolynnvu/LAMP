@@ -14,6 +14,7 @@
  				<input type="radio" name="radio" value="address" checked> Address <br>
  				<input type="radio" name="radio" value="instruments"> Instruments <br>
  				<input type="radio" name="radio" value="payments"> Payments <br>
+ 				<input type="radio" name="radio" value="contact_info"> Contact Info <br>
  				<input type="hidden" name="username" value="<?php echo $_GET["username"]; ?>"> <br>
  				<input type="submit" name="submitBtn" value="Go!" />
  			</form>

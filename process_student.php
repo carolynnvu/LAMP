@@ -42,6 +42,9 @@ if (isset($_POST['submitBtn'])) {
 				       INNER JOIN received_through
 				       ON payments.received_through_id = received_through.received_through_id
 				       WHERE payments.username={$usernameVal}";
+		} elseif(strcasecmp($radioBtnVal, "contact_info") == 0) {
+			$query = "SELECT phone, email, fax 
+					  FROM contact_info WHERE username={$usernameVal}";
 		}
 
 		$resultSet = $connection->query($query);
@@ -116,6 +119,25 @@ if (isset($_POST['submitBtn'])) {
 						<td><?php echo $row['pay_date']; ?></td>
 						<td><?php echo $row['late_fee']; ?></td>
 						<td><?php echo $row['received_through_descript']; ?></td>
+					</tr>
+				<?php endwhile ?>
+			</tbody>
+		</table>
+	<?php } elseif(strcasecmp($radioBtnVal, "contact_info") == 0) { ?>
+		<table>
+			<thead>
+				<tr>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Fax</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+					<tr>
+						<td><?php echo $row['phone']; ?></td>
+						<td><?php echo $row['email']; ?></td>
+						<td><?php echo $row['fax']; ?></td>
 					</tr>
 				<?php endwhile ?>
 			</tbody>
