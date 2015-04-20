@@ -82,19 +82,44 @@ if (isset($_POST['submitBtn'])) {
 		</table>
 	<?php } elseif(strcasecmp($radioBtnVal, "instruments") == 0) { ?>
 		<table>
-				<thead>
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
 					<tr>
-						<th>Name</th>
+						<td><?php echo $row['instrument_name']; ?></td>
 					</tr>
-				</thead>
-				<tbody>
-					<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
-						<tr>
-							<td><?php echo $row['instrument_name']; ?></td>
-						</tr>
-					<?php endwhile ?>
-				</tbody>
-			</table>
+				<?php endwhile ?>
+			</tbody>
+		</table>
+	<?php } elseif(strcasecmp($radioBtnVal, "payments") == 0) { ?>
+		<table>
+			<thead>
+				<tr>
+					<th>Amount</th>
+					<th>Method</th>
+					<th>Due Date</th>
+					<th>Pay Date</th>
+					<th>Late Fee</th>
+					<th>Received Through</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+					<tr>
+						<td><?php echo $row['amount']; ?></td>
+						<td><?php echo $row['payment_method_descript']; ?></td>
+						<td><?php echo $row['payment_due_date']; ?></td>
+						<td><?php echo $row['pay_date']; ?></td>
+						<td><?php echo $row['late_fee']; ?></td>
+						<td><?php echo $row['received_through_descript']; ?></td>
+					</tr>
+				<?php endwhile ?>
+			</tbody>
+		</table>
 	<?php } ?>
 	</body>
 </html>
