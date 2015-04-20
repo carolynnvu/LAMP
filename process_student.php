@@ -28,12 +28,12 @@ if (isset($_POST['submitBtn'])) {
 		if(strcasecmp($radioBtnVal, "address") == 0) {
 			$query = "SELECT street, city, state, zip
 				       FROM address WHERE username={$usernameVal}";
-		} else if(strcasecmp($radioBtnVal, "instruments") == 0) {
+		} elseif(strcasecmp($radioBtnVal, "instruments") == 0) {
 			$query = "SELECT descript AS instrument_name
 					   FROM student_instrument INNER JOIN instruments 
 					   ON student_instrument.instrument_id = instruments.instrument_id
 					   WHERE username={$usernameVal}";
-		} else if(strcasecmp($radioBtnVal, "payments") == 0) {
+		} elseif(strcasecmp($radioBtnVal, "payments") == 0) {
 			$query = "SELECT amount, payment_method.descript AS payment_method_descript, 
 				       payment_due_date, pay_date, late_fee, 
 				       received_through.descript AS received_through_descript 
@@ -59,6 +59,7 @@ if (isset($_POST['submitBtn'])) {
 	</head>
 	<body>	
 
+	<?php if(strcasecmp($radioBtnVal, "address") == 0) { ?>
 		<table>
 			<thead>
 				<tr>
@@ -79,6 +80,22 @@ if (isset($_POST['submitBtn'])) {
 				<?php endwhile ?>
 			</tbody>
 		</table>
+	<?php } elseif(strcasecmp($radioBtnVal, "instruments") == 0) { ?>
+		<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+						<tr>
+							<td><?php echo $row['instrument_name']; ?></td>
+						</tr>
+					<?php endwhile ?>
+				</tbody>
+			</table>
+	<?php } ?>
 	</body>
 </html>
 
