@@ -5,13 +5,15 @@
 		<meta charset="UTF-8" />
 	</head>
 	<body>
-		<p>Suuuuuuup</p>
+		<a href="view.php">View Students</a> <br>
 
-		<ul>
-			<li><a href="view.php">View Students</a></li>
-			<li>Option 2</li>
-			<li>Option 3</li>
-			<li>Option 4</li>
-		</ul>
+		<div class="container">
+			<h1>Search a Student</h1>
+			<p>Enter student username.</p>
+			<form action="search_student.php" method="POST">
+				<input type="text" name="username" required/> <br>
+				<input type="submit" name="submitBtn" value="Go!" /> 
+			</form>
+		</div>
 	</body>
 </html>

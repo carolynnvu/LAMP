@@ -48,8 +48,6 @@ if (isset($_POST['submitBtn'])) {
 		}
 
 		$resultSet = $connection->query($query);
-
-		// echo gettype($resultSet);
 	}
 }
 ?>
