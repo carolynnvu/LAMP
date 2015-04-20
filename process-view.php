@@ -57,7 +57,8 @@ $resultSet = $connection->query($query);
 					<th>Last Name</th>					
 					<th>DOB</th>					
 					<th>Sex</th>					
-					<th>Age Group</th>					
+					<th>Age Group</th>
+					<th>See More</th>					
 				</tr>
 			</thead>
 			<tbody>
@@ -69,6 +70,7 @@ $resultSet = $connection->query($query);
 					<td><?php echo $row["date_of_birth"]; ?></td>
 					<td><?php echo $row["sex_descript"]; ?></td>
 					<td><?php echo $row["age_descript"]; ?></td>
+					<td><a href="student.php?username=<?php echo $row["username"]; ?>"><img src="images/magnifying-glass.png"></a></td>
 				</tr>
 				<?php endwhile; ?>
 			</tbody>
