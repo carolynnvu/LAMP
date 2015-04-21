@@ -57,90 +57,97 @@ if (isset($_POST['submitBtn'])) {
 	<head>
 		<title>Student Info</title>
 		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>	
 
-	<?php if(strcasecmp($radioBtnVal, "address") == 0) { ?>
-		<table>
-			<thead>
-				<tr>
-					<th>Street</th>
-					<th>City</th>
-					<th>State</th>
-					<th>Zip</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+	<div class="content">
+
+		<h3 class="pageTitle">Student Details</h3>
+		<a href="index.html">Go home</a>
+
+		<?php if(strcasecmp($radioBtnVal, "address") == 0) { ?>
+			<table>
+				<thead>
 					<tr>
-						<td><?php echo $row['street']; ?></td>
-						<td><?php echo $row['city']; ?></td>
-						<td><?php echo $row['state']; ?></td>
-						<td><?php echo $row['zip']; ?></td>
+						<th>Street</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip</th>
 					</tr>
-				<?php endwhile ?>
-			</tbody>
-		</table>
-	<?php } elseif(strcasecmp($radioBtnVal, "instruments") == 0) { ?>
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+				</thead>
+				<tbody>
+					<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+						<tr>
+							<td><?php echo $row['street']; ?></td>
+							<td><?php echo $row['city']; ?></td>
+							<td><?php echo $row['state']; ?></td>
+							<td><?php echo $row['zip']; ?></td>
+						</tr>
+					<?php endwhile ?>
+				</tbody>
+			</table>
+		<?php } elseif(strcasecmp($radioBtnVal, "instruments") == 0) { ?>
+			<table>
+				<thead>
 					<tr>
-						<td><?php echo $row['instrument_name']; ?></td>
+						<th>Name</th>
 					</tr>
-				<?php endwhile ?>
-			</tbody>
-		</table>
-	<?php } elseif(strcasecmp($radioBtnVal, "payments") == 0) { ?>
-		<table>
-			<thead>
-				<tr>
-					<th>Amount</th>
-					<th>Method</th>
-					<th>Due Date</th>
-					<th>Pay Date</th>
-					<th>Late Fee</th>
-					<th>Received Through</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+				</thead>
+				<tbody>
+					<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+						<tr>
+							<td><?php echo $row['instrument_name']; ?></td>
+						</tr>
+					<?php endwhile ?>
+				</tbody>
+			</table>
+		<?php } elseif(strcasecmp($radioBtnVal, "payments") == 0) { ?>
+			<table>
+				<thead>
 					<tr>
-						<td><?php echo $row['amount']; ?></td>
-						<td><?php echo $row['payment_method_descript']; ?></td>
-						<td><?php echo $row['payment_due_date']; ?></td>
-						<td><?php echo $row['pay_date']; ?></td>
-						<td><?php echo $row['late_fee']; ?></td>
-						<td><?php echo $row['received_through_descript']; ?></td>
+						<th>Amount</th>
+						<th>Method</th>
+						<th>Due Date</th>
+						<th>Pay Date</th>
+						<th>Late Fee</th>
+						<th>Received Through</th>
 					</tr>
-				<?php endwhile ?>
-			</tbody>
-		</table>
-	<?php } elseif(strcasecmp($radioBtnVal, "contact_info") == 0) { ?>
-		<table>
-			<thead>
-				<tr>
-					<th>Phone</th>
-					<th>Email</th>
-					<th>Fax</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+				</thead>
+				<tbody>
+					<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+						<tr>
+							<td><?php echo $row['amount']; ?></td>
+							<td><?php echo $row['payment_method_descript']; ?></td>
+							<td><?php echo $row['payment_due_date']; ?></td>
+							<td><?php echo $row['pay_date']; ?></td>
+							<td><?php echo $row['late_fee']; ?></td>
+							<td><?php echo $row['received_through_descript']; ?></td>
+						</tr>
+					<?php endwhile ?>
+				</tbody>
+			</table>
+		<?php } elseif(strcasecmp($radioBtnVal, "contact_info") == 0) { ?>
+			<table>
+				<thead>
 					<tr>
-						<td><?php echo $row['phone']; ?></td>
-						<td><?php echo $row['email']; ?></td>
-						<td><?php echo $row['fax']; ?></td>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Fax</th>
 					</tr>
-				<?php endwhile ?>
-			</tbody>
-		</table>
-	<?php } ?>
+				</thead>
+				<tbody>
+					<?php while($row = mysqli_fetch_assoc($resultSet) ):?>
+						<tr>
+							<td><?php echo $row['phone']; ?></td>
+							<td><?php echo $row['email']; ?></td>
+							<td><?php echo $row['fax']; ?></td>
+						</tr>
+					<?php endwhile ?>
+				</tbody>
+			</table>
+		<?php } ?>
+		</div>
 	</body>
 </html>
 

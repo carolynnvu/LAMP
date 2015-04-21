@@ -3,17 +3,23 @@
 	<head>
 		<title>Music Academy: Student Database</title>
 		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<a href="view.php">View Students</a> <br>
+		<div class="content">
+			<h2 class="pageTitle">Music Academy: Student Database</h2>
+			<p class="pageDescription">View full roster or search for a student.</p>
+			<a href="view.php" id="viewStudents" class="rosterLink">View Students</a> <br>
 
-		<div class="container">
-			<h1>Search a Student</h1>
-			<p>Enter student username.</p>
-			<form action="search_student.php" method="POST">
-				<input type="text" name="username" required/> <br>
-				<input type="submit" name="submitBtn" value="Go!" /> 
-			</form>
+            <p>OR</p>
+			<div class="container">
+				<h3>Search a Student</h3>
+				<p class="instruction">Enter student username.</p>
+				<form action="search_student.php" method="POST">
+					<input type="text" name="username" required/>
+					<input type="submit" name="submitBtn" value="Go!" /> 
+				</form>
+			</div>
 		</div>
 	</body>
 </html>

@@ -47,33 +47,39 @@ $resultSet = $connection->query($query);
 	<head>
 		<title>View Students</title>
 		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<table>
-			<thead>
-				<tr>
-					<th>Username</th>
-					<th>First Name</th>					
-					<th>Last Name</th>					
-					<th>DOB</th>					
-					<th>Sex</th>					
-					<th>Age Group</th>
-					<th>See More</th>					
-				</tr>
-			</thead>
-			<tbody>
-				<?php while($row = mysqli_fetch_array($resultSet)) : ?>
-				<tr>
-					<td><?php echo $row["username"]; ?></td>
-					<td><?php echo $row["first_nm"]; ?></td>
-					<td><?php echo $row["last_nm"]; ?></td>
-					<td><?php echo $row["date_of_birth"]; ?></td>
-					<td><?php echo $row["sex_descript"]; ?></td>
-					<td><?php echo $row["age_descript"]; ?></td>
-					<td><a href="student.php?username=<?php echo $row["username"]; ?>"><img src="images/magnifying-glass.png"></a></td>
-				</tr>
-				<?php endwhile; ?>
-			</tbody>
-		</table>
+
+		<div class="content">
+			<h3 class="pageTitle"> Student Roster </h3>
+			<a href="index.html">Go home</a>
+			<table>
+				<thead>
+					<tr>
+						<th>Username</th>
+						<th>First Name</th>					
+						<th>Last Name</th>					
+						<th>DOB</th>					
+						<th>Sex</th>					
+						<th>Age Group</th>
+						<th>See More</th>					
+					</tr>
+				</thead>
+				<tbody>
+					<?php while($row = mysqli_fetch_array($resultSet)) : ?>
+					<tr>
+						<td><?php echo $row["username"]; ?></td>
+						<td><?php echo $row["first_nm"]; ?></td>
+						<td><?php echo $row["last_nm"]; ?></td>
+						<td><?php echo $row["date_of_birth"]; ?></td>
+						<td><?php echo $row["sex_descript"]; ?></td>
+						<td><?php echo $row["age_descript"]; ?></td>
+						<td><a href="student.php?username=<?php echo $row["username"]; ?>"><img src="images/magnifying-glass.png"></a></td>
+					</tr>
+					<?php endwhile; ?>
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>  

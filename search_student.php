@@ -40,9 +40,11 @@ if (isset($_POST['submitBtn'])) {
 	<head>
 		<title>Search Student Result</title>
 		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<h1>Search Result</h1>
+		<h3 class="pageTitle">Search Result</h3>
+		<a href="index.html">Go home</a> <br>
 		<?php 
 			$row_count = mysqli_num_rows($resultSet); 
 			if($row_count < 1) {

@@ -1,0 +1,70 @@
+.content {
+	padding: 20px;
+}
+
+body {
+	background-color: #F2CEDF;
+}
+
+.instruction {
+  font-style: italic;
+}
+
+.noResult {
+	font-weight: bold;
+	color: #9F3223;
+	text-align: center;
+}
+
+.pageDescription {
+	font-weight: bold;
+	color: #DC0A0A;
+    text-align: center;
+}
+
+.pageTitle {
+	text-align: center;
+}
+
+a:link {
+    color: #9F239D;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #9F239D;
+}
+
+a:hover {
+    color: #960ADC;
+}
+
+a:active {
+    color: #0ADC26;
+}
+
+form {
+  padding: 20px;
+  width: 200px;
+  background-color: #E7B1D5;
+}
+
+label {
+  color: #7A239F;
+  font-weight: bold;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+	color: #7A239F;
+    height: 50px;
+}
+
+
