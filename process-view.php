@@ -4,19 +4,11 @@
 error_reporting(E_ALL);
 ini_set("display_errors",1);
 
-//Will replace with config file later
-$creds = fopen("credentials.txt", "r") or die("Unable to open file!");
-$db_server = trim(fgets($creds)); 
-$user = trim(fgets($creds)); 
-$password = trim(fgets($creds)); 
-$db_name = trim(fgets($creds));
-fclose($creds);
-
 //Connect to database server
-$connection = mysqli_connect($db_server, 
-			     $user, 
-			     $password, 
-			     $db_name);
+$connection = mysqli_connect(<db_server>, 
+			     <username>, 
+			     <password>, 
+			     <db>);
 
 if(empty($_POST['sort_by'])) {
 	$sortBy = 'username';
