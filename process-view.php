@@ -14,9 +14,9 @@ fclose($creds);
 
 //Connect to database server
 $connection = mysqli_connect($db_server, 
-							 $user, 
-							 $password, 
-							 $db_name);
+			     $user, 
+			     $password, 
+			     $db_name);
 
 if(empty($_POST['sort_by'])) {
 	$sortBy = 'username';
